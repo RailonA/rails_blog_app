@@ -1,3 +1,2 @@
 ---
 BUNDLE_DEPLOYMENT: "false"
-BUNDLE_WITHOUT: "production"
