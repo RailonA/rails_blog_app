@@ -1,24 +1,13 @@
-# README
+# ruby-on-rails-blog-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+This project is a blog app done by using ruby on rails. It is ready to be deployed on a server but will run on your local server. 
 
-* Ruby version
+ 
+## Built With
 
-* System dependencies
+- RUBY
+- Ruby Twitter Gem
+- Visual Code
+- Heroku
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
