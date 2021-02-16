@@ -159,3 +159,97 @@ Processing by ArticlesController#edit as HTML
 Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 5454)
 
 
+Started GET "/articles/new" for ::1 at 2021-02-16 12:44:52 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 4.6ms | Allocations: 2728)
+  Rendered articles/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3147)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/railon/Projects/Odin_On_Rails/blog/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 858ms
+Built at: 02/16/2021 12:44:55 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 3205.0ms | Allocations: 10106)
+Completed 200 OK in 3225ms (Views: 3207.2ms | ActiveRecord: 0.7ms | Allocations: 16738)
+
+
+Started POST "/articles" for ::1 at 2021-02-16 12:45:00 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"Hello ", "body"=>""}, "commit"=>"Create Article"}
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 5.0ms | Allocations: 2684)
+  Rendered articles/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2774)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 5713)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 6902)
+
+
+Started POST "/articles" for ::1 at 2021-02-16 12:45:08 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"Hello ", "body"=>"What am i doing here\r\n"}, "commit"=>"Create Article"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello "], ["body", "What am i doing here\r\n"], ["created_at", "2021-02-16 17:45:08.871844"], ["updated_at", "2021-02-16 17:45:08.871844"]]
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (51.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:17:in `create'
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 61ms (ActiveRecord: 51.4ms | Allocations: 4751)
+
+
+Started GET "/articles/2" for ::1 at 2021-02-16 12:45:08 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 12)
+  Rendered comments/_form.html.erb (Duration: 37.8ms | Allocations: 4857)
+  Rendered articles/show.html.erb within layouts/application (Duration: 132.7ms | Allocations: 12812)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 138.6ms | Allocations: 15724)
+Completed 200 OK in 143ms (Views: 138.4ms | ActiveRecord: 1.0ms | Allocations: 17171)
+
+
+Started GET "/articles" for ::1 at 2021-02-16 12:45:15 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 950)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3962)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 4478)
+
+
+Started GET "/articles/new" for ::1 at 2021-02-16 12:45:16 -0500
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.8ms | Allocations: 687)
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 777)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3785)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 4173)
+
+
